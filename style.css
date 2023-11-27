@@ -89,6 +89,7 @@ main h2 {
 /* Footer */
 footer {
   display: flex;
+  flex-wrap: nowrap;
   flex-direction: row;
   justify-content: center;
   align-items: center;
@@ -97,7 +98,7 @@ footer {
 }
 
 .footer-img > * {
-  width: 20vw;
+  width: 60%;
   height: auto;
   padding: 5%;
 }
@@ -223,5 +224,52 @@ footer h4 {
 
   .project p {
     font-size: 0.6em;
+  }
+
+  footer {
+    flex-direction: column;
+    align-items: flex-start;
+    margin: 0;
+  }
+
+  footer > * :not(img) {
+    margin-left: 20%;
+    width: 100%;
+  }
+
+  .tel img {
+    display: none;
+  }
+  .email img {
+    display: none;
+  }
+
+  .tel {
+    margin: 0;
+  }
+
+  .tel-txt {
+    margin: 0;
+    padding: 0;
+    align-self: flex-start;
+  }
+
+  .email-txt {
+    margin: 0;
+    padding: 0;
+    align-self: flex-start;
+  }
+
+  .footer-img img {
+    align-self: center;
+    width: 80%;
+  }
+
+  .footer-txt {
+    width: 80%;
+  }
+
+  .footer-icons {
+    margin-top: 5%;
   }
 }
