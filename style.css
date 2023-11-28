@@ -19,6 +19,8 @@ a {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
+  width: 100vw;
+  position: relative;
 }
 
 .header-container {
@@ -74,11 +76,12 @@ header p {
 
 .project {
   margin-bottom: 2%;
-  border: 2px solid black;
   flex-grow: 0;
   flex-shrink: 1;
   flex-basis: 50px;
   max-width: 500px;
+  height: auto;
+  border: 2px solid gray;
 }
 
 .project-screenshot {
@@ -101,6 +104,10 @@ header p {
   justify-content: space-between;
   align-items: center;
   margin: 1% 2%;
+}
+
+.project:hover {
+  border: 5px solid black;
 }
 
 main h2 {
@@ -151,9 +158,90 @@ footer h4 {
   gap: 5%;
 }
 
+/* animations/effects */
+.project h3 {
+  display: inline-block;
+  position: relative;
+}
+
+.project h3:after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  transform: scaleX(0);
+  height: 3px;
+  bottom: 0;
+  left: 0;
+  background-color: red;
+  transform-origin: center;
+  transition: transform 0.25s ease-out;
+}
+
+.project h3:hover:after {
+  transform: scaleX(1);
+}
+
+.project {
+  transition: transform 0.2s;
+}
+
+.project:hover {
+  transform: rotate(1deg);
+}
+
+.dark-mode {
+  background: transparent;
+  border: none;
+  position: absolute;
+  left: 90%;
+  top: 0%;
+  margin: 5px;
+  cursor: pointer;
+}
+
+/* Dark mode */
+body.dark-theme {
+  background-color: black;
+}
+
+body.dark-theme main h2 {
+  color: white;
+}
+
+body.dark-theme main h3 {
+  color: white;
+}
+
+body.dark-theme main p {
+  color: white;
+}
+
+body.dark-theme main img {
+  color: white;
+  background-color: white;
+}
+
+body.dark-theme main .project:hover {
+  border: 5px solid red;
+}
+
+body.dark-theme .header-text {
+  background-color: black;
+}
+
+body.dark-theme h1,
+body.dark-theme p {
+  color: white;
+}
+
+body.dark-theme .header-icons {
+  background-color: white;
+  padding: 1%;
+}
+
 @media (max-width: 700px) {
   .header-text {
-    background-color: red;
+    /* background-color: red; */
     max-width: 70%;
     margin-left: 40%;
   }
@@ -187,11 +275,26 @@ footer h4 {
   .project p {
     font-size: 0.8em;
   }
+
+  .project:hover {
+    border: 5px solid black;
+  }
+
+  .dark-mode {
+    top: 90%;
+    left: 10%;
+    transform: translate(-50%, -50%);
+  }
+
+  .dark-mode > * {
+    width: 40px;
+    height: 40px;
+  }
 }
 
 @media (max-width: 450px) {
   .header-text {
-    background-color: green;
+    /* background-color: green; */
   }
 
   .header-text {
@@ -205,7 +308,6 @@ footer h4 {
   .header-text h1 {
     align-self: center;
     font-size: 0.9em;
-    color: pink;
   }
 
   .header-img {
@@ -216,7 +318,6 @@ footer h4 {
   .header-name {
     position: relative;
     font-size: 0.9em;
-    color: red;
   }
 
   .header-portait {
@@ -308,5 +409,16 @@ footer h4 {
 
   .footer-icons a {
     width: 15%;
+  }
+
+  .dark-mode {
+    top: 3%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  .dark-mode > * {
+    width: 30px;
+    height: 30px;
   }
 }

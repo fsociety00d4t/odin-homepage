@@ -1,1 +1,5 @@
-console.log("hi");
+let darkMode = document.querySelector(".dark-mode");
+
+darkMode.addEventListener("click", function () {
+  document.body.classList.toggle("dark-theme");
+});
